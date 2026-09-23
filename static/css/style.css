@@ -1,238 +1,427 @@
 /* ===== RESET ===== */
+
 html, body{
+
 margin:0 !important;
+
 padding:0 !important;
+
 font-family: Arial, sans-serif;
+
 background:#f5f5f5;
+
 }
 
 /* ===== NAVBAR ===== */
+
 .navbar{
+
 margin:0 !important;
+
 padding:8px 0 !important;
+
 box-shadow:0 2px 10px rgba(0,0,0,0.2);
+
 z-index:1000;
+
 }
 
 .navbar-nav{
+
 display:flex !important;
+
 flex-direction:row !important;
+
 align-items:center;
+
 gap:15px;
+
 }
 
 .nav-link{
+
 font-size:14px;
+
 transition:0.3s;
+
 }
 
 .nav-link i{
+
 margin-right:6px;
+
 color:#38bdf8;
+
 }
 
 .nav-link:hover{
+
 color:#0d6efd !important;
+
 transform:scale(1.05);
+
 }
 
 .nav-link:hover i{
+
 transform:scale(1.2);
+
 }
 
 /* ===== PROFILE IMAGE ===== */
+
 .profile-pic{
+
 width:35px;
+
 height:35px;
+
 border-radius:50%;
+
 object-fit:cover;
+
 }
 
 /* ===== HERO ===== */
+
 .hero{
+
 padding:100px 20px;
+
 background:linear-gradient(135deg,#1e3c72,#2a5298);
+
 color:white;
+
 text-align:center;
+
 }
 
 /* ===== PROJECTS ===== */
+
 .projects-section{
+
 background: linear-gradient(135deg, #020617, #0f172a);
+
 min-height: 100vh;
+
 padding:40px 0 80px;
+
 }
 
 .projects-title{
+
 color:#e2e8f0;
+
 text-align:center;
+
 margin-bottom:40px;
+
 }
 
 /* ===== CARDS ===== */
+
 .card{
+
 background: rgba(2, 6, 23, 0.85);
+
 border:1px solid rgba(56,189,248,0.1);
+
 border-radius:14px;
+
 transition:0.35s;
+
 position:relative;
+
 overflow:hidden;
+
 }
 
 .card:hover{
-transform:translateY(-8px) scale(1.02);
-box-shadow:0 20px 40px rgba(0,0,0,0.7);
-border:1px solid #38bdf8;
+
+transform:none;
+
+box-shadow:none;
+
+border:1px solid rgba(56,189,248,0.1);
+
 }
 
 .card::before{
+
 content:"";
+
 position:absolute;
+
 inset:0;
+
 border-radius:14px;
+
 padding:1px;
+
 background:linear-gradient(120deg,transparent,#38bdf8,transparent);
+
 opacity:0;
+
 transition:0.4s;
+
+pointer-events:none;
+
 }
 
 .card:hover::before{
-opacity:1;
+
+opacity:0;
+
+}
+
+.card-body,
+
+.card-footer{
+
+position:relative;
+
+z-index:2;
+
+}
+
+.card a{
+
+position:relative;
+
+z-index:3;
+
+pointer-events:auto;
+
 }
 
 .card h4{
+
 color:#e2e8f0;
+
 }
 
 .card p{
+
 color:#94a3b8;
+
 }
 
 .card-footer{
+
 background:transparent;
+
 border-top:1px solid #1e293b;
+
 }
 
 /* ===== SKILL CARDS ===== */
+
 .skill-card{
+
 background:linear-gradient(135deg,#e0f2fe,#bae6fd);
+
 border:1px solid #7dd3fc;
+
 border-radius:12px;
+
 transition:0.3s;
+
 }
 
 .skill-card:hover{
+
 transform:translateY(-6px);
+
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
+
 }
 
 .skill-card h5{
+
 color:#0f172a;
+
 }
 
 /* ===== CHAT PAGE ===== */
+
 .chat-page{
+
 background: linear-gradient(135deg, #1e3a8a, #2563eb);
+
 min-height:100vh;
+
 }
 
 /* ===== CHAT CONTAINER ===== */
+
 .chat-container{
+
 max-width:700px;
+
 margin:15px auto;
+
 background:#ffffff;
+
 padding:20px;
+
 border-radius:12px;
+
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
 }
 
 /* ===== CHATBOX ===== */
+
 .chatbox{
+
 height:420px;
+
 overflow-y:auto;
+
 display:flex;
+
 flex-direction:column;
+
 padding:10px;
+
 background:#f8fafc;
+
 border-radius:10px;
+
 }
 
 /* ===== MESSAGE BASE ===== */
+
 .message{
+
 display:flex;
+
 width:100%;
+
 margin:5px 0;
+
 }
 
 /* USER → RIGHT (like WhatsApp) */
+
 .user-message{
+
 justify-content:flex-end;
+
 }
 
 .user-message .bubble{
+
 background:#2563eb;
+
 color:white;
+
 border-radius:12px 12px 0 12px;
+
 }
 
 /* AI → LEFT */
+
 .ai-message{
+
 justify-content:flex-start;
+
 }
 
 .ai-message .bubble{
+
 background:#e2e8f0;
+
 color:#0f172a;
+
 border-radius:12px 12px 12px 0;
+
 }
 
 /* BUBBLE */
+
 .bubble{
+
 max-width:65%;
+
 padding:10px 14px;
+
 font-size:14px;
+
 word-wrap:break-word;
+
 }
 
 /* AVATAR */
+
 .avatar{
+
 width:28px;
+
 height:28px;
+
 border-radius:50%;
+
 margin:0 5px;
+
 }
 
 /* ===== INPUT ===== */
+
 .input-area{
+
 display:flex;
+
 margin-top:10px;
+
 gap:10px;
+
 }
 
 .input-area input{
+
 flex:1;
+
 padding:10px;
+
 border-radius:8px;
+
 border:1px solid #e2e8f0;
+
 outline:none;
+
 }
 
 .input-area button{
+
 background:#2563eb;
+
 color:white;
+
 border:none;
+
 padding:10px 15px;
+
 border-radius:8px;
+
 cursor:pointer;
+
 }
 
 .input-area button:hover{
+
 background:#1d4ed8;
+
 }
 
 /* ===== RESPONSIVE ===== */
+
 @media (max-width:768px){
+
 .navbar-nav{
+
 row-gap:8px;
+
 }
+
 }
