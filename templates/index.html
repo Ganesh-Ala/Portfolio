@@ -1,120 +1,704 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Ala Ganesh's portfolio showcasing Python, SQL, Data Science, AI projects, and web development.">
 
-<title>Ala Ganesh | AI Developer</title>
+    <title>Ala Ganesh | SmartHire AI Portfolio</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
+    <!-- Your Existing Stylesheet -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body>
-{% include 'navbar.html' %}
+<body id="top" class="portfolio-home">
 
-<!-- Hero Section -->
+    <!-- Navigation -->
+    {% include 'navbar.html' %}
 
-<section class="hero text-center">
-<div class="container">
+    <main>
 
-<h1 class="display-4">Hi, I'm Ala Ganesh</h1>
-<p class="lead">AI & Data Science Developer</p>
+        
+<!-- HERO: GLASSMORPHISM DEVELOPER PORTFOLIO -->
+<section id="about" class="hero hero-section glass-hero">
 
-<p>Creator of NutriSnap-X and AI Powered Applications</p>
+    <div class="container glass-hero-container">
 
-<a href="/projects" class="btn btn-primary btn-lg">View My Work</a>
+        <div class="glass-profile-card">
 
-<a href="{{ url_for('static', filename='resume.pdf') }}" class="btn btn-success">Download Resume</a>
+            <div class="glass-profile-content">
 
-<a href="/chatbot" class="btn btn-success btn-lg">Talk to My AI Resume</a>
+                <span class="hero-badge">
+                    <span class="status-dot"></span>
+                    Computer Science Graduate · Data Science
+                </span>
 
-</div>
+                <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+
+                <h1>
+                    Hi, I'm <span>Ala Ganesh</span>
+                </h1>
+
+                <h2 class="glass-subtitle">
+                    Developer, Learner & Problem Solver
+                </h2>
+
+                <p class="glass-intro">
+                    I'm a Computer Science graduate specializing in Data Science.
+                    I enjoy building practical applications with Python, SQL,
+                    artificial intelligence, and web technologies.
+                    My goal is to turn ideas into useful digital solutions.
+                </p>
+
+                <div class="glass-actions">
+                    <a href="{{ url_for('projects') }}"
+                       class="btn btn-primary">
+                        <i class="fa-solid fa-folder-open"></i>
+                        My Projects
+                    </a>
+
+                    <a href="{{ url_for('static', filename='resume.pdf') }}"
+                       class="btn btn-outline-primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        My Resume
+                    </a>
+
+                    <a href="{{ url_for('contact') }}"
+                       class="btn btn-outline-primary">
+                        <i class="fa-solid fa-envelope"></i>
+                        Contact Me
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="glass-profile-photo-wrap">
+                <img
+                    src="{{ url_for('static', filename='Profile.png', v='3') }}"
+                    alt="Ala Ganesh profile photo"
+                    class="glass-profile-photo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                <div class="glass-photo-fallback" aria-label="Ala Ganesh">
+                    AG
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Technology summary -->
+        <div class="glass-skills-strip">
+
+            <div class="glass-skill-item">
+                <span class="glass-skill-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </span>
+                <div>
+                    <strong>B.Tech CSE</strong>
+                    <small>Data Science</small>
+                </div>
+            </div>
+
+            <div class="glass-skill-item">
+                <span class="glass-skill-icon">
+                    <i class="fa-solid fa-code"></i>
+                </span>
+                <div>
+                    <strong>Web Development</strong>
+                    <small>HTML · CSS · JavaScript</small>
+                </div>
+            </div>
+
+            <div class="glass-skill-item">
+                <span class="glass-skill-icon">
+                    <i class="fa-brands fa-python"></i>
+                </span>
+                <div>
+                    <strong>Python</strong>
+                    <small>Application Development</small>
+                </div>
+            </div>
+
+            <div class="glass-skill-item">
+                <span class="glass-skill-icon">
+                    <i class="fa-solid fa-database"></i>
+                </span>
+                <div>
+                    <strong>SQL</strong>
+                    <small>Database Fundamentals</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </section>
 
-<!-- About -->
+<!-- PAGE 2: PORTFOLIO INDEX -->
+<section id="portfolio-index" class="book-index-section">
+    <div class="container">
 
-<section class="container mt-5">
-<h2 class="text-center mb-4">About Me</h2>
+        <div class="book-index-heading">
+            <span class="book-page-label">YOUR GUIDE</span>
+            <h2>Portfolio Index</h2>
+            <p>
+                Table of Contents. <br>
+                Choose a Topic to Jump Directly to that Part of My Journey.
+            </p>
+        </div>
 
-<p class="text-center">
-I am Ala Ganesh, a Final-Year B.Tech Computer Science Student Specializing in Data Science.<br>
-I came from a farming family in Andhra Pradesh and I am the First Graduate in My Family. <br>
-I am Passionate about Building AI-Powered Applications like NutriSnap.
-</p>
+        <div class="book-index-list">
 
+            <a class="book-index-row" href="#technologies">
+                <span class="book-index-number">01</span>
+                <span class="book-index-title">
+                    Technologies I Work With
+                    <small>Programming languages and tools</small>
+                </span>
+                <span class="book-index-dots"></span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a class="book-index-row" href="#skills">
+                <span class="book-index-number">02</span>
+                <span class="book-index-title">
+                    My Skills
+                    <small>Technical skills and toolkit</small>
+                </span>
+                <span class="book-index-dots"></span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a class="book-index-row" href="#projects">
+                <span class="book-index-number">03</span>
+                <span class="book-index-title">
+                    Selected Work
+                    <small>NutriSnap-X, SmartHire AI and BillSmartApp</small>
+                </span>
+                <span class="book-index-dots"></span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a class="book-index-row" href="#approach">
+                <span class="book-index-number">04</span>
+                <span class="book-index-title">
+                    My Approach
+                    <small>How I learn, build and improve</small>
+                </span>
+                <span class="book-index-dots"></span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a class="book-index-row" href="#contact">
+                <span class="book-index-number">05</span>
+                <span class="book-index-title">
+                    Let's Connect
+                    <small>Contact and professional links</small>
+                </span>
+                <span class="book-index-dots"></span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <p class="book-index-footer">
+            <i class="fa-solid fa-book-open"></i>
+            Every section tells a different part of my story.
+        </p>
+
+    </div>
 </section>
 
-<!-- Why Hire Me -->
 
-<section class="container mt-5">
-<h2 class="text-center">Why to Hire Me?</h2>
+        <!-- Technologies -->
+        <section id="technologies" class="tech-strip">
+            <div class="container">
+                <p class="tech-strip-title text-center mb-3">
+                    TECHNOLOGIES I WORK WITH
+                </p>
 
-<ul class="text-center list-unstyled">
-<li>Quick Learner and Adaptable</li>
-<li>Strong Determination and Consistency</li>
-<li>Hands-On Experience in AI-based Projects</li>
-<li>Real-World Responsibility through Part-Time Work</li>
-</ul>
+                <div class="tech-list justify-content-center">
+                    <span class="tech-tag">
+                        <i class="fa-brands fa-python"></i> Python
+                    </span>
+                    <span class="tech-tag">
+                        <i class="fa-solid fa-database"></i> SQL
+                    </span>
+                    <span class="tech-tag">
+                        <i class="fa-solid fa-chart-column"></i> Data Analysis
+                    </span>
+                    <span class="tech-tag">
+                        <i class="fa-brands fa-html5"></i> HTML
+                    </span>
+                    <span class="tech-tag">
+                        <i class="fa-brands fa-css3-alt"></i> CSS
+                    </span>
+                    <span class="tech-tag">
+                        <i class="fa-brands fa-js"></i> JavaScript
+                    </span>
+                    <span class="tech-tag">
+                        <i class="fa-solid fa-brain"></i> Machine Learning
+                    </span>
+                    <span class="tech-tag">
+                        <i class="fa-solid fa-flask"></i> Flask
+                    </span>
+                </div>
+            </div>
+        </section>
 
-</section>
+        <!-- Skills -->
+        <section id="skills" class="section-padding">
+            <div class="container">
 
-<!-- Skills -->
+                <div class="section-heading">
+                    <p class="eyebrow">MY TOOLKIT</p>
+                    <h2>Skills I'm building on</h2>
+                    <p>
+                        A practical mix of programming, data handling, and
+                        application development skills.
+                    </p>
+                </div>
 
-<section class="container mt-5">
+                <div class="row g-4">
 
-<h2 class="text-center mb-4">Skills</h2>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <h3>Programming</h3>
+                            <p>
+                                Python fundamentals, problem-solving, and
+                                writing programs for practical tasks.
+                            </p>
+                            <div class="tech-tags mt-3">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Java Basics</span>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <h3>Data & Analytics</h3>
+                            <p>
+                                Working with structured data, analysis,
+                                and presenting useful insights.
+                            </p>
+                            <div class="tech-tags mt-3">
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Excel</span>
+                                <span class="tech-tag">Power BI</span>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="col-md-3"><div class="card skill-card"><div class="card-body text-center"><h5>Python</h5></div></div></div>
-<div class="col-md-3"><div class="card skill-card"><div class="card-body text-center"><h5>Machine Learning</h5></div></div></div>
-<div class="col-md-3"><div class="card skill-card"><div class="card-body text-center"><h5>Flask</h5></div></div></div>
-<div class="col-md-3"><div class="card skill-card"><div class="card-body text-center"><h5>Data Science</h5></div></div></div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <h3>AI & Machine Learning</h3>
+                            <p>
+                                Applying AI concepts and machine learning
+                                tools in academic and personal projects.
+                            </p>
+                            <div class="tech-tags mt-3">
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">NumPy</span>
+                                <span class="tech-tag">PIL</span>
+                            </div>
+                        </div>
+                    </div>
 
-</div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3>Web Development</h3>
+                            <p>
+                                Building web interfaces and connecting them
+                                to Python-based application logic.
+                            </p>
+                            <div class="tech-tags mt-3">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Flask</span>
+                            </div>
+                        </div>
+                    </div>
 
-</section>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h3>Databases</h3>
+                            <p>
+                                Creating and working with relational databases
+                                for application data and records.
+                            </p>
+                            <div class="tech-tags mt-3">
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">SQLite</span>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Chart -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <h3>Tools & Workflow</h3>
+                            <p>
+                                Developing, testing, versioning, and
+                                maintaining projects with familiar tools.
+                            </p>
+                            <div class="tech-tags mt-3">
+                                <span class="tech-tag">VS Code</span>
+                                <span class="tech-tag">Git</span>
+                                <span class="tech-tag">GitHub</span>
+                                <span class="tech-tag">Render</span>
+                            </div>
+                        </div>
+                    </div>
 
-<section class="container mt-5">
-<h2 class="text-center mb-4">Skills Visualization</h2>
-<canvas id="skillsChart"></canvas>
-</section>
+                </div>
+            </div>
+        </section>
 
-<footer style="
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#212529;
-color:white;
-text-align:center;
-padding:10px;
-z-index:1000;
-">
+        <!-- Projects -->
+        <section id="projects" class="projects-section">
+            <div class="container">
 
-© 2026 Ala Ganesh | AI Developer 🚀  
+                <div class="section-heading">
+                    <p class="eyebrow">SELECTED WORK</p>
+                    <h2>Projects I've built</h2>
+                    <p>
+                        Projects that demonstrate my interest in AI,
+                        data-driven applications, and web development.
+                    </p>
+                </div>
 
-<a href="https://github.com/Ala-Ganesh" target="_blank" style="color:#0d6efd;">
-💻Visit My GitHub
-</a>
+                <div class="row g-4">
 
+                    <!-- NutriSnap -->
+                    <div class="col-md-6 col-lg-4">
+                        <article class="project-card">
+                            <div class="project-illustration">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
 
-</footer>
+                            <div class="project-card-body">
+                                <span class="project-type">AI & Machine Learning</span>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                <h3>NutriSnap-X</h3>
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+                                <p>
+                                    An AI-based food recognition and nutrition
+                                    estimation application that analyses food
+                                    images and presents nutritional information.
+                                </p>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+                                <div class="tech-tags mb-3">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">TensorFlow</span>
+                                    <span class="tech-tag">Flask</span>
+                                </div>
+
+                                <div class="project-links">
+                                    <a href="{{ url_for('nutrisnap') }}">
+                                        Explore Project
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- SmartHire AI -->
+                    <div class="col-md-6 col-lg-4">
+                        <article class="project-card">
+                            <div class="project-illustration">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+
+                            <div class="project-card-body">
+                                <span class="project-type">Web Development & AI</span>
+
+                                <h3>SmartHire AI</h3>
+
+                                <p>
+                                    A developer portfolio and AI assistant
+                                    experience built to present technical
+                                    projects, skills, and professional information.
+                                </p>
+
+                                <div class="tech-tags mb-3">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Flask</span>
+                                    <span class="tech-tag">HTML/CSS</span>
+                                </div>
+
+                                <div class="project-links">
+                                    <a href="{{ url_for('smarthire') }}">
+                                        Explore Project
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                    <a href="{{ url_for('chatbot') }}">
+                                        Try AI Chat
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- BillSmart -->
+                    <div class="col-md-6 col-lg-4">
+                        <article class="project-card">
+                            <div class="project-illustration">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+
+                            <div class="project-card-body">
+                                <span class="project-type">Application Development</span>
+
+                                <h3>BillSmartApp</h3>
+
+                                <p>
+                                    A billing application developed with Python
+                                    and SQLite to practise application logic
+                                    and structured data storage.
+                                </p>
+
+                                <div class="tech-tags mb-3">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Flask</span>
+                                    <span class="tech-tag">SQLite</span>
+                                </div>
+
+                                <div class="project-links">
+                                    <a href="{{ url_for('billsmart') }}">
+                                        Explore Project
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="{{ url_for('projects') }}"
+                       class="btn btn-dark">
+                        <i class="fa-solid fa-folder-open"></i>
+                        View All Projects
+                    </a>
+
+                    <a href="https://github.com/Ala-Ganesh"
+                       class="btn btn-outline-primary ms-2"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub Profile
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About My Approach -->
+        <section id="approach" class="about-section">
+            <div class="container">
+
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-6">
+                        <p class="eyebrow">MY APPROACH</p>
+
+                        <h2>Learning by building, improving through practice.</h2>
+
+                        <p>
+                            I believe the best way to improve technical skills
+                            is to apply them to real projects, understand what
+                            goes wrong, and keep refining the solution.
+                        </p>
+
+                        <p>
+                            My projects have given me opportunities to practise
+                            Python programming, database operations, AI
+                            integration, web development, and deployment.
+                        </p>
+
+                        <a href="{{ url_for('github') }}"
+                           class="btn btn-primary mt-2">
+                            <i class="fa-brands fa-github"></i>
+                            Explore My GitHub
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+
+                            <div class="col-sm-6">
+                                <div class="focus-card">
+                                    <div class="focus-icon">
+                                        <i class="fa-solid fa-lightbulb"></i>
+                                    </div>
+                                    <h3>Problem Solving</h3>
+                                    <p>
+                                        Breaking down requirements and
+                                        developing practical solutions.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="focus-card">
+                                    <div class="focus-icon">
+                                        <i class="fa-solid fa-book-open"></i>
+                                    </div>
+                                    <h3>Continuous Learning</h3>
+                                    <p>
+                                        Strengthening fundamentals through
+                                        practice and project work.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="focus-card">
+                                    <div class="focus-icon">
+                                        <i class="fa-solid fa-people-group"></i>
+                                    </div>
+                                    <h3>Teamwork</h3>
+                                    <p>
+                                        Building communication, responsibility,
+                                        and collaboration skills.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="focus-card">
+                                    <div class="focus-icon">
+                                        <i class="fa-solid fa-rocket"></i>
+                                    </div>
+                                    <h3>Practical Results</h3>
+                                    <p>
+                                        Turning learning into applications
+                                        that people can explore.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section id="contact" class="cta-section">
+            <div class="container">
+                <div class="cta-box text-center">
+
+                    <p class="eyebrow">LET'S CONNECT</p>
+
+                    <h2>Have an opportunity or a project in mind?</h2>
+
+                    <p class="mx-auto mt-3" style="max-width: 620px;">
+                        I'm interested in opportunities where I can contribute,
+                        keep learning, and grow as a technology professional.
+                        Feel free to reach out.
+                    </p>
+
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+                        <a href="{{ url_for('contact') }}"
+                           class="btn btn-primary">
+                            <i class="fa-regular fa-envelope"></i>
+                            Get in Touch
+                        </a>
+
+                        <a href="https://github.com/Ala-Ganesh"
+                           class="btn btn-light"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fa-brands fa-github"></i>
+                            Visit GitHub
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row align-items-center g-3">
+
+                <div class="col-md-7">
+                    <p>
+                        &copy; 2026 Ala Ganesh · SmartHire AI Portfolio
+                    </p>
+                    <p class="mt-1">
+                        Built with curiosity, code, and continuous learning.
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="social-links justify-content-md-end">
+                        <a href="https://github.com/Ala-Ganesh"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                        <a href="{{ url_for('contact') }}"
+                           aria-label="Contact">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+
+                        <a href="#top" aria-label="Back to top">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
