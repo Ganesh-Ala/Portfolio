@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "_macros.html" import contact_form %}
+
+{% block title %}Contact | Ala Ganesh{% endblock %}
+{% block description %}Get in touch with Ala Ganesh, Python Full Stack Developer, about entry-level developer opportunities.{% endblock %}
+
+{% block content %}
+<section class="section page-top" aria-labelledby="page-title">
+    <div class="container narrow">
+        <header class="section-head">
+            <p class="eyebrow">Contact</p>
+            <h1 id="page-title">Get in touch</h1>
+            <p class="section-intro">
+                I&rsquo;m open to entry-level Python and full stack developer roles.
+                Send me a message and I&rsquo;ll reply as soon as I can.
+            </p>
+        </header>
+
+        <div class="form-card">
+            {% if form_message %}
+            <p class="form-status {{ 'is-success' if form_ok else 'is-error' }}" role="status">{{ form_message }}</p>
+            {% endif %}
+
+            {% if contact_enabled %}
+                {{ contact_form(csrf_token, form_values, form_errors) }}
+            {% else %}
+                <p>The contact form is not available right now. You can reach me here instead:</p>
+                <p><a class="btn btn-primary" href="mailto:{{ site.email }}">Email me
+                    <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            {% endif %}
+        </div>
+
+        <ul class="contact-links contact-links-inline">
+            <li><a href="mailto:{{ site.email }}"><svg width="22" height="22" aria-hidden="true"><use href="#i-mail"/></svg><span>{{ site.email }}</span></a></li>
+            <li><a href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/tech/linkedin.svg') }}" alt="" width="22" height="22"><span>LinkedIn</span><span class="sr-only">(opens in a new tab)</span></a></li>
+            <li><a href="{{ site.github }}" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/tech/github.svg') }}" alt="" width="22" height="22"><span>GitHub</span><span class="sr-only">(opens in a new tab)</span></a></li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Resume | Ala Ganesh{% endblock %}
+{% block description %}Resume of Ala Ganesh, Python Full Stack Developer: education, skills, internship and projects. View it online or download it as a PDF.{% endblock %}
+
+{% block content %}
+<section class="section page-top" aria-labelledby="page-title">
+    <div class="container medium">
+        <header class="section-head">
+            <p class="eyebrow">Resume</p>
+            <h1 id="page-title">Ala Ganesh &ndash; Resume</h1>
+            <p class="section-intro">Read my resume below. Downloading a copy is optional.</p>
+        </header>
+
+        <div class="resume-actions">
+            <a class="btn btn-primary" href="{{ url_for('resume_download') }}">
+                <svg width="18" height="18" aria-hidden="true"><use href="#i-download"/></svg>
+                Download Resume</a>
+            <a class="btn btn-secondary" href="{{ url_for('resume_file') }}" target="_blank" rel="noopener noreferrer">
+                Open in new tab
+                <svg width="14" height="14" aria-hidden="true"><use href="#i-external"/></svg>
+                <span class="sr-only">(opens in a new tab)</span></a>
+        </div>
+
+        <div class="pdf-frame">
+            <object data="{{ url_for('resume_file') }}#view=FitH" type="application/pdf" aria-label="Resume of Ala Ganesh (PDF)">
+                {# Shown only when the browser cannot display PDFs inside a page (common on phones). #}
+                <div class="pdf-fallback">
+                    <p>Your browser cannot show the resume inside this page.</p>
+                    <div class="resume-actions">
+                        <a class="btn btn-primary" href="{{ url_for('resume_file') }}" target="_blank" rel="noopener noreferrer">
+                            View resume (PDF)
+                            <span class="sr-only">(opens in a new tab)</span></a>
+                        <a class="btn btn-secondary" href="{{ url_for('resume_download') }}">Download Resume</a>
+                    </div>
+                </div>
+            </object>
+        </div>
+    </div>
+</section>
+{% endblock %}

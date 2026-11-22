@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Chat Assistant | Ala Ganesh{% endblock %}
+{% block description %}Ask a simple chat assistant about Ala Ganesh's skills, projects, education, experience and career goals.{% endblock %}
+
+{% block content %}
+<section class="section page-top" aria-labelledby="page-title">
+    <div class="container narrow">
+        <header class="section-head">
+            <p class="eyebrow">Chat assistant</p>
+            <h1 id="page-title">Ask about my background</h1>
+            <p class="section-intro">
+                A simple rule-based assistant that answers common questions about my
+                skills, projects and experience.
+            </p>
+        </header>
+
+        <div class="chat-card">
+            <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Conversation">
+                <div class="chat-msg is-bot">
+                    <img class="chat-avatar" src="{{ url_for('static', filename='img/ala-ganesh.webp') }}" alt="" width="32" height="32">
+                    <p class="chat-bubble">Hi! I can tell you about Ala&rsquo;s skills, projects, education, experience and career goals. What would you like to know?</p>
+                </div>
+            </div>
+
+            <div class="chat-suggestions" aria-label="Suggested questions">
+                <button type="button" class="chip-button" data-question="Who is Ala Ganesh?">Who is Ala?</button>
+                <button type="button" class="chip-button" data-question="What are your skills?">Skills</button>
+                <button type="button" class="chip-button" data-question="Tell me about your projects">Projects</button>
+                <button type="button" class="chip-button" data-question="Tell me about your education">Education</button>
+                <button type="button" class="chip-button" data-question="What experience do you have?">Experience</button>
+                <button type="button" class="chip-button" data-question="What are your career goals?">Career goals</button>
+            </div>
+
+            <form class="chat-form" id="chat-form" autocomplete="off">
+                <label class="sr-only" for="chat-input">Your question</label>
+                <input id="chat-input" type="text" maxlength="300" placeholder="Type your question&hellip;" required>
+                <button class="btn btn-primary" type="submit">Send</button>
+            </form>
+        </div>
+
+        <p class="more-link"><a class="text-link" href="{{ url_for('home') }}">&larr; Back to home</a></p>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chatbot.js') }}" defer></script>
+{% endblock %}

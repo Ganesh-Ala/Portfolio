@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F8FAF8">
+
+    <title>{% block title %}Ala Ganesh | Python Full Stack Developer{% endblock %}</title>
+    <meta name="description" content="{% block description %}Portfolio of Ala Ganesh, a Computer Science graduate and Python Full Stack Developer building web applications with Python, Flask, FastAPI, MySQL, HTML, CSS and JavaScript.{% endblock %}">
+    <meta name="author" content="Ala Ganesh">
+    <link rel="canonical" href="{{ site.url }}{{ request.path }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ala Ganesh">
+    <meta property="og:title" content="{{ self.title() }}">
+    <meta property="og:description" content="{{ self.description() }}">
+    <meta property="og:url" content="{{ site.url }}{{ request.path }}">
+    <meta property="og:image" content="{{ site.url }}{{ url_for('static', filename='img/og-image.png') }}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+
+    {# Sets data-theme before first paint (external file: the CSP blocks inline scripts). #}
+    <script src="{{ url_for('static', filename='js/theme-init.js') }}"></script>
+    <link rel="preload" href="{{ url_for('static', filename='fonts/plus-jakarta-sans-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', filename='fonts/fraunces-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    {# Small shared icon set (simple line icons) #}
+    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3.5 7 8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-5 4v-4H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </svg>
+
+    {% set home_prefix = '' if request.endpoint == 'home' else url_for('home') %}
+    {% set on_projects = request.endpoint in ['projects', 'nutrisnap', 'smarthire', 'billsmart'] %}
+
+    <header class="site-header" id="top">
+        <div class="container nav-bar">
+            <a class="brand" href="{{ url_for('home') }}" aria-label="Ala Ganesh, home">
+                <span class="brand-mark" aria-hidden="true">AG</span>
+                <span class="brand-text">Ala Ganesh</span>
+            </a>
+
+            <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+                <ul>
+                    {# Section links: "#id" on the homepage, "/#id" (via url_for) from every other page. #}
+                    <li><a href="{{ home_prefix }}#home" data-section="home">Home</a></li>
+                    <li><a href="{{ home_prefix }}#about" data-section="about">About</a></li>
+                    <li><a href="{{ home_prefix }}#technologies" data-section="technologies">Technologies</a></li>
+                    <li><a href="{{ home_prefix }}#skills" data-section="skills">Skills</a></li>
+                    <li><a href="{{ home_prefix }}#projects" data-section="projects" {% if on_projects %}aria-current="page"{% endif %}>Projects</a></li>
+                    <li><a href="{{ home_prefix }}#journey" data-section="journey">My Journey</a></li>
+                    <li><a href="{{ url_for('resume') }}" {% if request.endpoint == 'resume' %}aria-current="page"{% endif %}>Resume</a></li>
+                    <li><a href="{{ home_prefix }}#contact" data-section="contact" {% if request.endpoint == 'contact' %}aria-current="page"{% endif %}>Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+                    <svg class="i-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg>
+                    <svg class="i-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg>
+                </button>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                    <span class="nav-toggle-bars" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-id">
+                <p class="footer-name">Ala Ganesh</p>
+                <p class="footer-role">Python Full Stack Developer</p>
+            </div>
+
+            <ul class="footer-links" aria-label="Footer links">
+                <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                <li><a href="{{ url_for('resume') }}">Resume</a></li>
+                <li><a href="{{ url_for('chatbot') }}">Ask the assistant</a></li>
+                <li><a href="{{ url_for('github') }}">GitHub activity</a></li>
+            </ul>
+
+            <div class="footer-social">
+                <a class="icon-link" href="{{ site.github }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">
+                    <img src="{{ url_for('static', filename='img/tech/github.svg') }}" alt="" width="22" height="22">
+                </a>
+                <a class="icon-link" href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+                    <img src="{{ url_for('static', filename='img/tech/linkedin.svg') }}" alt="" width="22" height="22">
+                </a>
+                <a class="icon-link" href="mailto:{{ site.email }}" aria-label="Send an email">
+                    <svg width="22" height="22" aria-hidden="true"><use href="#i-mail"/></svg>
+                </a>
+                <a class="icon-link" href="#top" aria-label="Back to top">
+                    <svg width="22" height="22" aria-hidden="true"><use href="#i-up"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="container footer-copy">
+            <p>&copy; {{ year }} Ala Ganesh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

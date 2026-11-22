@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}GitHub Activity | Ala Ganesh{% endblock %}
+{% block description %}A live overview of Ala Ganesh's public GitHub profile and most recently updated repositories.{% endblock %}
+
+{% block content %}
+<section class="section page-top" aria-labelledby="page-title">
+    <div class="container">
+        <header class="section-head">
+            <p class="eyebrow">GitHub</p>
+            <h1 id="page-title">My GitHub activity</h1>
+            <p class="section-intro">Live data from my public GitHub profile.</p>
+        </header>
+
+        <div id="gh-profile" class="gh-profile" data-user="{{ site.github_user }}" aria-live="polite">
+            <p class="muted">Loading profile&hellip;</p>
+        </div>
+
+        <h2 class="gh-heading">Recently updated repositories</h2>
+        <div id="gh-repos" class="project-grid" aria-live="polite"></div>
+
+        <p class="more-link">
+            <a class="text-link" href="{{ site.github }}" target="_blank" rel="noopener noreferrer">Open my GitHub profile
+                <svg width="14" height="14" aria-hidden="true"><use href="#i-external"/></svg>
+                <span class="sr-only">(opens in a new tab)</span></a>
+        </p>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/github.js') }}" defer></script>
+{% endblock %}

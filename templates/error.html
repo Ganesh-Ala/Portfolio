@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} | Ala Ganesh{% endblock %}
+
+{% block content %}
+<section class="section page-top error-page" aria-labelledby="page-title">
+    <div class="container narrow center">
+        <p class="eyebrow">Error {{ code }}</p>
+        <h1 id="page-title">{{ title }}</h1>
+        <p class="section-intro">{{ message }}</p>
+        <p><a class="btn btn-primary" href="{{ url_for('home') }}">Back to home</a></p>
+    </div>
+</section>
+{% endblock %}

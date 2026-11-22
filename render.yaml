@@ -1,0 +1,25 @@
+# Optional Render "Blueprint". If you use it, Render reads the settings below
+# automatically. You can also create the service by hand (see README.md).
+services:
+  - type: web
+    name: alaganesh-portfolio
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 1 --threads 4 --timeout 60
+    healthCheckPath: /healthz
+    envVars:
+      # Generated once by Render - never put a real secret in this file.
+      - key: SECRET_KEY
+        generateValue: true
+      # Your public address, e.g. https://alaganesh-portfolio.onrender.com
+      - key: SITE_URL
+        sync: false
+      # Contact form (optional). Render asks you for these values when you
+      # create the service; leave them empty to disable the form.
+      - key: CONTACT_TO_EMAIL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CONTACT_FROM_EMAIL
+        sync: false

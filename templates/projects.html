@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "_macros.html" import project_card %}
+
+{% block title %}Projects | Ala Ganesh{% endblock %}
+{% block description %}Projects by Ala Ganesh: NutriSnap-X, SmartHire AI and BillSmartApp, built with Python, Flask, SQLite and TensorFlow.{% endblock %}
+
+{% block content %}
+<section class="section page-top" aria-labelledby="page-title">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Projects</p>
+            <h1 id="page-title">Projects I&rsquo;ve built</h1>
+            <p class="section-intro">Each project links to its live demo and source code on GitHub.</p>
+        </div>
+
+        <div class="project-grid">
+            {% for project in projects %}
+                {{ project_card(project, loop.index) }}
+            {% endfor %}
+        </div>
+
+        <p class="more-link">
+            <a class="text-link" href="{{ url_for('github') }}">See my GitHub activity
+                <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </p>
+    </div>
+</section>
+{% endblock %}
